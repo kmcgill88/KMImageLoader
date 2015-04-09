@@ -13,7 +13,7 @@ import CoreGraphics
 
 class ImageLoader {
     
-    var SECONDS_SINCE_DISK_CACHE_CLEAN = 60 //Set time in seconds until cache is cleared.
+    let SECONDS_SINCE_DISK_CACHE_CLEAN = 60 //Set time in seconds until cache is cleared.
     let MAX_SIZE:CGFloat = 400 //Max width or height of downloaded Image.
 
     var cache = NSCache()
