@@ -9,7 +9,7 @@
 
 import UIKit
 import Foundation
-
+import CoreGraphics
 
 class ImageLoader {
     
@@ -129,7 +129,7 @@ class ImageLoader {
             let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
             var colorSpace:CGColorSpaceRef  = CGColorSpaceCreateDeviceRGB()
             
-            var context:CGContextRef = CGBitmapContextCreate(nil, UInt(rect.size.width), UInt(rect.size.height), 8, 4 * UInt(rect.size.width), colorSpace, bitmapInfo)
+            var context:CGContextRef = CGBitmapContextCreate(nil, Int(rect.size.width), Int(rect.size.height), 8, 4 * Int(rect.size.width), colorSpace, bitmapInfo)
             CGContextBeginPath(context)
             
             var fw, fh :CGFloat
@@ -162,16 +162,17 @@ class ImageLoader {
     func cleanDiskCache(){
          dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
             var error:NSError?
-            var calendar = NSCalendar(identifier: NSGregorianCalendar)!
+        
+            var calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)!
             var filePaths = self.fileManager.contentsOfDirectoryAtPath(self.imageDirectory, error: nil)
             if var goodPaths = filePaths as? [NSString] {
                 for path in goodPaths {
-                    var fullPath = self.imageDirectory.stringByAppendingPathComponent(path)
+                    var fullPath = self.imageDirectory.stringByAppendingPathComponent(path as String)
                     var dic:NSDictionary? = self.fileManager.attributesOfItemAtPath(fullPath, error: nil)
                     if var goodDic = dic {
                         var creationDate: AnyObject? = goodDic[NSFileCreationDate]
                         if var savedDate = creationDate as? NSDate {
-                            var components = calendar.components(NSCalendarUnit.SecondCalendarUnit, fromDate: savedDate, toDate: NSDate(), options: nil)
+                            var components = calendar.components(NSCalendarUnit.CalendarUnitSecond, fromDate: savedDate, toDate: NSDate(), options: nil)
                             if  components.second >= self.SECONDS_SINCE_DISK_CACHE_CLEAN {
                                 if !self.fileManager.removeItemAtPath(fullPath, error: &error) {
                                     println("Failed to delete \(fullPath). Because -->\(error)")
@@ -186,7 +187,7 @@ class ImageLoader {
     }
     
     func initFileManager(){
-        var documentsPath: String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
+        var documentsPath: String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
         imageDirectory = documentsPath.stringByAppendingPathComponent("Images")
         
         //If the file doesn't exists, make one

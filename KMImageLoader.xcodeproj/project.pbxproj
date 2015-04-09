@@ -16,6 +16,8 @@
 		0A4C60AD1ABB9098008AD4B2 /* KMImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C60AC1ABB9098008AD4B2 /* KMImageLoader.swift */; };
 		0A4C60AF1ABB90FD008AD4B2 /* error-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4C60AE1ABB90FD008AD4B2 /* error-image.png */; };
 		0A4C60B11ABBB234008AD4B2 /* loading-placeholder-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4C60B01ABBB234008AD4B2 /* loading-placeholder-clear.png */; };
+		0A6993A61AD6F87000B788B9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6993A51AD6F87000B788B9 /* CoreGraphics.framework */; };
+		0AD5D23D1AC0C733005ADCB5 /* KMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5D23C1AC0C733005ADCB5 /* KMTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		0A4C60AC1ABB9098008AD4B2 /* KMImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMImageLoader.swift; sourceTree = "<group>"; };
 		0A4C60AE1ABB90FD008AD4B2 /* error-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "error-image.png"; sourceTree = "<group>"; };
 		0A4C60B01ABBB234008AD4B2 /* loading-placeholder-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading-placeholder-clear.png"; sourceTree = "<group>"; };
+		0A6993A51AD6F87000B788B9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0AD5D23C1AC0C733005ADCB5 /* KMTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6993A61AD6F87000B788B9 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 		0A4C607E1ABB8B62008AD4B2 = {
 			isa = PBXGroup;
 			children = (
+				0A6993A51AD6F87000B788B9 /* CoreGraphics.framework */,
 				0A4C60891ABB8B62008AD4B2 /* KMImageLoader */,
 				0A4C609F1ABB8B62008AD4B2 /* KMImageLoaderTests */,
 				0A4C60881ABB8B62008AD4B2 /* Products */,
@@ -83,6 +89,7 @@
 		0A4C60891ABB8B62008AD4B2 /* KMImageLoader */ = {
 			isa = PBXGroup;
 			children = (
+				0AD5D23C1AC0C733005ADCB5 /* KMTableViewCell.swift */,
 				0A4C60B01ABBB234008AD4B2 /* loading-placeholder-clear.png */,
 				0A4C60AE1ABB90FD008AD4B2 /* error-image.png */,
 				0A4C60AC1ABB9098008AD4B2 /* KMImageLoader.swift */,
@@ -226,6 +233,7 @@
 				0A4C608F1ABB8B62008AD4B2 /* ViewController.swift in Sources */,
 				0A4C608D1ABB8B62008AD4B2 /* AppDelegate.swift in Sources */,
 				0A4C60AD1ABB9098008AD4B2 /* KMImageLoader.swift in Sources */,
+				0AD5D23D1AC0C733005ADCB5 /* KMTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +427,7 @@
 				0A4C60A81ABB8B62008AD4B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A4C60A91ABB8B62008AD4B2 /* Build configuration list for PBXNativeTarget "KMImageLoaderTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +436,7 @@
 				0A4C60AB1ABB8B62008AD4B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
